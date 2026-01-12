@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가뭄현황 | NEWS-ADAN NEXUS</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="container-fluid">
+          <div class="logo">NEWS-ADAN</div>
+          <ul class="nav-links">
+            <li><a href="index.html#nexus">NEXUS 소개</a></li>
+            <li><a href="index.html#dashboard">대시보드</a></li>
+            <li><a href="drought_status.html" class="active">가뭄현황</a></li>
+            <li><a href="#report">보고서</a></li>
+          </ul>
+          <div class="nav-actions">
+            <div class="share-wrapper">
+              <button class="btn-share">
+                <img src="./images/icon_share_black.svg" alt="Share" />
+              </button>
+              <div class="share-popup" id="sharePopup">
+                <a href="#" class="share-item">카카오톡</a>
+                <a href="#" class="share-item">페이스북</a>
+                <a href="#" class="share-item">유튜브</a>
+                <a href="#" class="share-item">블로그</a>
+              </div>
+            </div>
+            <a href="login.html" class="btn-login">로그인</a>
+            <button class="btn-menu"></button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Drought Status Page -->
+    <main class="sub_container">   
+      <section class="sub_common_top sub_visual1">
+         <!-- PC 탭메뉴 -->
+         <ul class="sub_common_tabmenu">
+            <li><a href="index.html" class="on">가뭄현황</a></li>
+            <li><a href="">토양유효수분율</a></li>
+            <li><a href="">유효수분량</a></li>
+            <li><a href="">강수량</a></li>
+            <li><a href="">기준증발산량</a></li>
+            <li><a href="">작물계수</a></li>
+            <li><a href="">수분계수</a></li>
+            <li><a href="">영구위조점 및 총 유효수분량</a></li>         
+         </ul>
+         <!-- 모바일 셀렉트박스 -->
+         <div class="sub_mobile_select">
+            <button type="button" class="mobile_select_btn">
+               <span class="select_text">가뭄현황</span>
+               <span class="select_arrow"></span>
+            </button>
+            <ul class="mobile_select_list">
+               <li><a href="index.html" class="on">가뭄현황</a></li>
+               <li><a href="">토양유효수분율</a></li>
+               <li><a href="">유효수분량</a></li>
+               <li><a href="">강수량</a></li>
+               <li><a href="">기준증발산량</a></li>
+               <li><a href="">작물계수</a></li>
+               <li><a href="">수분계수</a></li>
+               <li><a href="">영구위조점 및 총 유효수분량</a></li>
+            </ul>
+         </div>
+      </section>    
+
+      <div class="sub_title_wrap">
+        <div class="sub_common_title">가뭄현황</div>
+        <div class="sub_location">HOME > 가뭄현황 > 전체</div>
+      </div>
+
+      <section class="drought-status-section">
+        <button class="btn_calendar"><span class="current_date">2026년 1월 11일</span><span class="btn_open"></span></button>
+
+        <div class="farm-crops-group">
+          <label class="radio_item">
+            <input type="radio" name="drought_type" value="콩" checked>
+            <span class="radio_label">콩<img src="./images/icon_crops_bean_off.png" alt="콩" class="crop_icon bean"></span>
+          </label>
+          <label class="radio_item">
+            <input type="radio" name="drought_type" value="양파">
+            <span class="radio_label">양파<img src="./images/icon_crops_onion_off.png" alt="양파" class="crop_icon onion"></span>
+          </label>
+          <label class="radio_item">
+            <input type="radio" name="drought_type" value="배추">
+            <span class="radio_label">배추<img src="./images/icon_crops_cabbage_off.png" alt="배추" class="crop_icon cabbage"></span>
+          </label>
+          <label class="radio_item">
+            <input type="radio" name="drought_type" value="고추">
+            <span class="radio_label">고추<img src="./images/icon_crops_pepper_off.png" alt="고추" class="crop_icon pepper"></span>
+          </label>
+          <label class="radio_item">
+            <input type="radio" name="drought_type" value="고구마">
+            <span class="radio_label">고구마<img src="./images/icon_crops_sweet_potato_off.png" alt="고구마" class="crop_icon sweet_potato"></span>
+          </label>
+        </div>
+
+
+      </section>
+
+     
+
+      <div class="sub_contents">
+        <div class="sub_contents_inner">
+          <!-- map_box -->
+          <div class="map_common_box">
+            <div class="area_title"><h3>토양유효수분율 <span class="date">2025-01-11기준</span></h3></div>
+            <div class="area_map">
+              <div class="legend_wrap">
+                <span class="legend_point color1">관수시점 <span class="count"><strong>0</strong>개</span></span>
+                <span class="legend_point color2">관수불필요 <span class="count"><strong>80~999%</strong></span></span>
+                <span class="legend_point color3">상위엽위조 <span class="count"><strong>167</strong>개</span></span>
+                <span class="legend_point color4">전체위조 <span class="count"><strong>167</strong>개</span></span>
+                <span class="legend_point color5">고사 <span class="count"><strong>167</strong>개</span></span>
+                <span class="legend_point color6">결측 <span class="count"><strong>0</strong>개</span></span>
+              </div>
+            </div>         
+          </div>
+          <!-- map_box -->
+
+          <!-- map_box -->
+          <div class="map_common_box">
+            <div class="area_title"><h3>토양유효수분율 <span class="date">2025-01-11기준</span></h3></div>
+            <div class="area_map">
+              <div class="legend_wrap">
+                <span class="legend_point color1">관수불필요 <span class="count"><strong>0</strong>개</span></span>
+                <span class="legend_point color2">관수시점점 <span class="count"><strong>80~999%</strong></span></span>
+                <span class="legend_point color3">상위엽위조 <span class="count"><strong>167</strong>개</span></span>
+                <span class="legend_point color4">전체위조 <span class="count"><strong>167</strong>개</span></span>
+                <span class="legend_point color5">고사 <span class="count"><strong>167</strong>개</span></span>
+                <span class="legend_point color6">결측 <span class="count"><strong>0</strong>개</span></span>
+              </div>
+            </div>         
+          </div>
+          <!-- map_box -->
+
+          <!-- map_box -->
+          <div class="map_common_box">
+            <div class="area_title"><h3>토양유효수분율 <span class="date">2025-01-11기준</span></h3></div>
+            <div class="area_map">
+              <div class="legend_wrap">
+                <span class="legend_point color1">관수불필요<span class="count"><strong>45 ~ 60%</strong>개</span></span>
+                <span class="legend_point color2">관수시점 <span class="count"><strong>80~999%</strong></span></span>
+                <span class="legend_point color3">상위엽위조 <span class="count"><strong>167</strong>개</span></span>
+                <span class="legend_point color4">전체위조 <span class="count"><strong>167</strong>개</span></span>
+                <span class="legend_point color5">고사 <span class="count"><strong>167</strong>개</span></span>
+                <span class="legend_point color6">결측 <span class="count"><strong>0</strong>개</span></span>
+              </div>
+            </div>         
+          </div>
+          <!-- map_box -->
+          
+        </div>
+
+        <!-- 하단 범례 바 -->
+        <div class="legend_bar">
+          <span class="legend_point color1"><span class="legend_name">관수시점</span><span class="legend_range">0개</span></span>
+          <span class="legend_point color2"><span class="legend_name">관수불필요</span><span class="legend_range">80~999%</span></span>
+          <span class="legend_point color3"><span class="legend_name">상위엽위조</span><span class="legend_range">40 ~ 45%</span></span>
+          <span class="legend_point color4"><span class="legend_name">전체위조</span><span class="legend_range">10 ~ 40%</span></span>
+          <span class="legend_point color5"><span class="legend_name">고사</span><span class="legend_range">0 ~ 10%</span></span>
+          <span class="legend_point color6"><span class="legend_name">결측</span><span class="legend_range">-9999 ~ 0%</span></span>
+        </div>
+      </div>
+
+
+      
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-info">
+            <h3>NEWS-ADAN</h3>
+            <p>
+              The NEXUS Environmental Working for Sustainability<br />
+              Agricultural Drought Assessment in NEXUS
+            </p>
+          </div>
+          <div class="footer-nav">
+            <a href="index.html#nexus">NEXUS 소개</a>
+            <a href="index.html#dashboard">대시보드</a>
+            <a href="drought_status.html">가뭄현황</a>
+            <a href="#report">보고서</a>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="copyright">
+            © 2025 NEWS-ADAN NEXUS. All rights reserved.
+          </div>
+          <div class="legal">
+            <a href="#">개인정보처리방침</a>
+            <a href="#">이용약관</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Share Popup Handler
+      const btnShare = document.querySelector('.btn-share');
+      const sharePopup = document.getElementById('sharePopup');
+
+      btnShare.addEventListener('click', (e) => {
+        e.preventDefault();
+        sharePopup.classList.toggle('active');
+      });
+
+      // Close popup when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.share-wrapper')) {
+          sharePopup.classList.remove('active');
+        }
+      });
+
+      // Crop Selection Handler
+      const cropBtns = document.querySelectorAll('.crop-btn');
+      const cropGuide = document.querySelector('.crop-guide');
+
+      cropBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          // Remove active class from all buttons
+          cropBtns.forEach((b) => b.classList.remove('active'));
+          // Add active class to clicked button
+          btn.classList.add('active');
+
+          // Update guide text
+          const cropName = btn.querySelector('.crop-name').textContent;
+          cropGuide.textContent = `선택된 작물: ${cropName}`;
+        });
+      });
+
+      // Mobile Select Handler
+      const mobileSelect = document.querySelector('.sub_mobile_select');
+      const mobileSelectBtn = document.querySelector('.mobile_select_btn');
+      const mobileSelectList = document.querySelector('.mobile_select_list');
+      const selectText = document.querySelector('.select_text');
+
+      if (mobileSelectBtn) {
+        mobileSelectBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          mobileSelect.classList.toggle('open');
+        });
+
+        mobileSelectList.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', (e) => {
+            // Update selected text
+            selectText.textContent = link.textContent;
+            // Remove 'on' class from all links
+            mobileSelectList.querySelectorAll('a').forEach((l) => l.classList.remove('on'));
+            // Add 'on' class to clicked link
+            link.classList.add('on');
+            // Close dropdown
+            mobileSelect.classList.remove('open');
+          });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.sub_mobile_select')) {
+            mobileSelect.classList.remove('open');
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

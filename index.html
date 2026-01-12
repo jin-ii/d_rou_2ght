@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEWS-ADAN NEXUS | Global Solutions</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="container-fluid">
+          <div class="logo">NEWS-ADAN</div>
+          <ul class="nav-links">
+            <li><a href="#nexus">NEXUS 소개</a></li>
+            <li><a href="#dashboard">대시보드</a></li>
+            <li><a href="drought_status.html">가뭄현황</a></li>
+            <li><a href="#report">보고서</a></li>
+          </ul>
+          <div class="nav-actions">
+            <div class="share-wrapper">
+              <button class="btn-share">
+                <img src="./images/icon_share_black.svg" alt="Share" />
+              </button>
+              <div class="share-popup" id="sharePopup">
+                <a href="#" class="share-item">카카오톡</a>
+                <a href="#" class="share-item">페이스북</a>
+                <a href="#" class="share-item">유튜브</a>
+                <a href="#" class="share-item">블로그</a>
+              </div>
+            </div>
+            <a href="login.html" class="btn-login">로그인</a>
+            <button class="btn-menu"></button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title" id="hero-title"><span class="title-line">통합적 자원 관리의 새로운 기준</span></h1>
+          <p class="hero-subtitle" id="hero-subtitle">NEWS-ADAN</p>
+        </div>
+        <div class="hero-content-visual">    
+          <div class="hero-media-wrap">  
+
+              <div class="hero-media1">
+                <div class="txt-wrap">
+                  <span>WATER</span>
+                </div>
+                <div class="media-wrap">
+                  <video preload="auto" loop="" autoplay="" muted="" playsinline=""><source src="./images/video/intro-box-water.mp4" type="video/mp4"></video>
+                </div>
+              </div>
+
+              <div class="hero-media2">
+                <div class="txt-wrap energy-text">
+                  <span>ENERGY</span>
+                </div>
+                <div class="media-wrap">
+                  <video preload="auto" loop="" autoplay="" muted="" playsinline=""><source src="./images/video/intro-box-energy.mp4" type="video/mp4"></video>
+                </div>
+              </div>
+
+              <div class="hero-media3">
+                <div class="txt-wrap">
+                  <span>FOOD</span>
+                </div>
+                <div class="media-wrap">
+                  <video preload="auto" loop="" autoplay="" muted="" playsinline=""><source src="./images/video/intro-box-food.mp4" type="video/mp4"></video>
+                </div>
+                <div class="food-reveal-content">
+                  <h3 class="food-reveal-title"><strong class="nexus-english">NEWS-ADAN NEXUS</strong><br><span class="nexus-korean"><span class="korean-line">물-에너지-식량 넥서스로 여는</span><br><span class="korean-line">가뭄 극복의 미래</span></span></h3>
+                  <p class="food-reveal-description">물-에너지-식량 자원 간의 복잡한 상호작용을 분석하고,<br>상충(trade-off)과 상승(synergy) 관계를 이해하여 지속가능한 농업 발전을 위한 통합적 솔루션을 제공하고자 합니다.</p>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>         
+      </div>
+    </main>
+
+
+
+    <!-- Vision Section -->
+    <section class="vision-section" id="vision-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-left">
+            <h2 class="section-title">The Nexus Vision</h2>
+          </div>
+          <div class="col-right">
+            <p class="lead-text">
+              NEWS-ADAN NEXUS는 물-에너지-식량(WEF) 자원의 상호 연관성을 통합적으로 분석하고, 이를 기반으로 농업 가뭄을 정밀하게 진단 및 예측하여 지속가능한 농업 환경을 조성하는 혁신적인 의사결정 지원 시스템입니다.
+            </p>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-number" data-value="03">03</span>
+                <span class="stat-label">핵심 분야</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" data-value="24/7">24/7</span>
+                <span class="stat-label">실시간 모니터링</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" data-value="Global">Global</span>
+                <span class="stat-label">국제 표준</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery-section">
+      <div class="container">
+        <div class="gallery-container" id="gallery-container">
+          <img src="./images/main_nexus_img2.jpg" alt="Nexus 2" class="gallery-img gallery-img-2">
+          <img src="./images/main_nexus_img3.jpg" alt="Nexus 3" class="gallery-img gallery-img-3">
+          <div class="gallery-center" id="gallery-center-wrapper">
+            <img src="./images/main_nexus_img1.jpg" alt="Nexus 1" class="gallery-main-img" id="main-gallery-img">
+            <img src="./images/main_nexus_img2.jpg" alt="Nexus 2" class="gallery-main-img gallery-slide-img" id="slide-img-2">
+            <img src="./images/main_nexus_img3.jpg" alt="Nexus 3" class="gallery-main-img gallery-slide-img" id="slide-img-3">
+            <img src="./images/main_nexus_img4.jpg" alt="Nexus 4" class="gallery-main-img gallery-slide-img" id="slide-img-4">
+            <img src="./images/main_nexus_img5.jpg" alt="Nexus 5" class="gallery-main-img gallery-slide-img" id="slide-img-5">
+          </div>
+          <img src="./images/main_nexus_img4.jpg" alt="Nexus 4" class="gallery-img gallery-img-4">
+          <img src="./images/main_nexus_img5.jpg" alt="Nexus 5" class="gallery-img gallery-img-5">
+          <div class="business-content-overlay" id="business-content-overlay">
+            <!-- Slide 1 -->
+            <div class="business-slide active" id="business-slide-1">
+              <span class="business-label">주요 서비스</span>
+              <h2 class="business-title">가뭄 예측 및<br>데이터 분석 서비스</h2>
+              <p class="business-desc">정밀한 관개 계획 수립을 돕고, 가뭄 해소를 위한 필요강수량 등 수문 정보와 연계하여 물 부족 상황에 선제적으로 대응합니다.</p>
+            </div>
+            <!-- Slide 2 -->
+            <div class="business-slide" id="business-slide-2">
+              <span class="business-label">주요 서비스</span>
+              <h2 class="business-title">재생 에너지 기반<br>농업 시스템</h2>
+              <p class="business-desc">농업 용수 확보 및 관리 과정에서 필요한 에너지 효율성을 분석하고, 재생 에너지 도입을 통한 지속가능성을 높입니다.</p>
+            </div>
+            <!-- Slide 3 -->
+            <div class="business-slide" id="business-slide-3">
+              <span class="business-label">주요 서비스</span>
+              <h2 class="business-title">가뭄에 노출되지 않는<br>안정적인 자원</h2>
+              <p class="business-desc">WEF 넥서스 분석을 통해 최적의 작물 선택, 재배 방식, 그리고 영양 개선 방안을 도출하여 식량 안보를 강화합니다.</p>
+            </div>
+            <!-- Slide 4 -->
+            <div class="business-slide" id="business-slide-4">
+              <span class="business-label">주요 서비스</span>
+              <h2 class="business-title">실시간<br>모니터링 시스템</h2>
+              <p class="business-desc">위성 데이터와 IoT 센서를 활용한 실시간 토양 수분 및 기상 모니터링 서비스를 제공합니다.</p>
+            </div>
+            <!-- Slide 5 -->
+            <div class="business-slide" id="business-slide-5">
+              <span class="business-label">주요 서비스</span>
+              <h2 class="business-title">통합 데이터<br>플랫폼 구축</h2>
+              <p class="business-desc">물-에너지-식량 넥서스 데이터를 통합 관리하여 지속가능한 농업 발전을 지원합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXUS System Section -->
+    <section class="nexus-system-section" id="nexus-system-section">
+      <div class="nexus-container">
+        <video autoplay muted loop playsinline class="nexus-video"></video>
+        <div class="nexus-content">
+          <div class="nexus-title">
+            <img src="./images/main_txt_nexus.png" alt="Nexus" class="nexus-title-img">
+            <img src="./images/main_txt_system.png" alt="System" class="nexus-title-img">
+          </div>
+          <img src="./images/diagram_nexus_system.png" alt="Nexus System Diagram" class="nexus-diagram">
+          <div class="nexus-labels">
+            <div class="nexus-label nexus-label-1"><span class="nexus-point">●</span> Water</div>
+            <div class="nexus-label nexus-label-2"><span class="nexus-point">●</span> Energy</div>
+            <div class="nexus-label nexus-label-3"><span class="nexus-point">●</span> Soil</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-info">
+            <h3>NEWS-ADAN</h3>
+            <p>
+              The NEXUS Environmental Working for Sustainability<br />
+              Agricultural Drought Assessment in NEXUS
+            </p>
+          </div>
+          <div class="footer-nav">
+            <a href="#">NEXUS 소개</a>
+            <a href="#">대시보드</a>
+            <a href="#">가뭄현황</a>
+            <a href="#">보고서</a>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="copyright">
+            © 2025 NEWS-ADAN NEXUS. All rights reserved.
+          </div>
+          <div class="legal">
+            <a href="#">개인정보처리방침</a>
+            <a href="#">이용약관</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Register GSAP plugins
+      gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+      // ============================================
+      // Header Slide Down Animation on Page Load
+      // ============================================
+      gsap.set('.header', { y: -90 }); // 초기 상태: 위쪽에 숨김
+
+      gsap.to('.header', {
+        y: 0, // 제위치로 이동
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.1
+      });
+
+      // Hero title text animation with GSAP
+      const heroTitle = document.getElementById('hero-title');
+      const heroSubtitle = document.getElementById('hero-subtitle');
+      const titleLines = heroTitle.querySelectorAll('.title-line');
+
+      // 초기 상태: 보이는 상태로 설정 (스크롤 0에서 보여야 함)
+      gsap.set(titleLines, { opacity: 1, y: 0 });
+      gsap.set(heroSubtitle, { opacity: 1, y: 0 });
+
+      // GSAP elements
+      const heroMedia1 = document.querySelector('.hero-media1 .txt-wrap');
+      const heroMedia2 = document.querySelector('.hero-media2 .txt-wrap');
+      const heroMedia3 = document.querySelector('.hero-media3 .txt-wrap');
+      const heroMedia1Video = document.querySelector('.hero-media1 .media-wrap');
+      const heroMedia2Video = document.querySelector('.hero-media2 .media-wrap');
+      const heroMedia3Video = document.querySelector('.hero-media3 .media-wrap');
+      const heroContent = document.querySelector('.hero-content');
+      const heroContentVisual = document.querySelector('.hero-content-visual');
+
+      // Initialize media text elements
+      gsap.set([heroMedia1, heroMedia2, heroMedia3], { opacity: 0, x: -100 });
+      gsap.set([heroMedia1Video, heroMedia2Video, heroMedia3Video], { opacity: 0 });
+      gsap.set(heroMedia2, { x: 100 });
+      gsap.set('.hero-media2 .media-wrap', { x: 100 });
+      gsap.set(heroContent, { autoAlpha: 1 }); // 초기 상태 visible
+
+      // 처음부터 pin 적용된 통합 ScrollTrigger 타임라인
+      const heroScrollTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.hero',
+          start: 'top top',
+          end: '+=6000',
+          scrub: 1,
+          pin: true,
+          pinSpacing: true,
+          markers: false
+        }
+      });
+
+      // Phase 1: 타이틀과 서브타이틀 페이드아웃 (스크롤 시작하면 바로 사라지기 시작)
+      // 각 제목 라인을 개별 애니메이션
+      titleLines.forEach((line, index) => {
+        heroScrollTL.to(line, {
+          opacity: 0,
+          y: -30,
+          duration: 0.5,
+          ease: 'power2.inOut'
+        }, index * 0.1);
+      });
+
+      heroScrollTL.to(heroSubtitle, {
+        opacity: 0,
+        y: -30,
+        duration: 0.5,
+        ease: 'power2.inOut'
+      }, titleLines.length * 0.1);
+      
+      // heroContent visibility 제어 (스크롤 역방향에서도 복구되도록)
+      heroScrollTL.to(heroContent, {
+        autoAlpha: 0,
+        duration: 0.01
+      }, 0.6);
+
+      // Phase 2: WATER 텍스트 슬라이드인 (0.8 ~ 1.4)
+      heroScrollTL.to(heroMedia1, {
+        opacity: 1,
+        x: 0,
+        duration: 0.6,
+        ease: 'power3.out'
+      }, 0.8);
+
+      // Phase 3: ENERGY 텍스트 슬라이드인 (1.0 ~ 1.6)
+      heroScrollTL.to(heroMedia2, {
+        opacity: 1,
+        x: 0,
+        duration: 0.6,
+        ease: 'power3.out'
+      }, 1.0);
+      heroScrollTL.to('.hero-media2 .media-wrap', {
+        x: 0,
+        duration: 0.6,
+        ease: 'power3.out'
+      }, 1.0);
+
+      // Phase 4: FOOD 텍스트 슬라이드인 (1.2 ~ 1.8)
+      heroScrollTL.to(heroMedia3, {
+        opacity: 1,
+        x: 0,
+        duration: 0.6,
+        ease: 'power3.out'
+      }, 1.2);
+
+      // Phase 5: 비디오 순차 페이드인 (1.6 ~ 2.4)
+      heroScrollTL.to(heroMedia1Video, {
+        opacity: 1,
+        duration: 0.4,
+        ease: 'power2.out'
+      }, 1.6);
+
+      heroScrollTL.to(heroMedia2Video, {
+        opacity: 1,
+        duration: 0.4,
+        ease: 'power2.out'
+      }, 1.8);
+
+      heroScrollTL.to(heroMedia3Video, {
+        opacity: 1,
+        duration: 0.4,
+        ease: 'power2.out'
+      }, 2.0);
+
+      // Phase 6: WATER, FOOD 페이드아웃 + ENERGY 중앙 이동 (2.6 ~ 3.2)
+      heroScrollTL.to(['.hero-media1 .txt-wrap', '.hero-media1 .media-wrap'], {
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.inOut'
+      }, 2.6);
+
+      heroScrollTL.to(['.hero-media3 .txt-wrap', '.hero-media3 .media-wrap'], {
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.inOut'
+      }, 2.6);
+
+      heroScrollTL.to('.hero-media2 .txt-wrap', {
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.inOut'
+      }, 2.6);
+
+      heroScrollTL.to('.hero-media2 .media-wrap', {
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%, -50%)',
+        duration: 0.5,
+        ease: 'power2.inOut'
+      }, 2.6);
+
+      // Phase 7: ENERGY 비디오 풀스크린 확대 (3.2 ~ 4.0)
+      heroScrollTL.to('.hero-media2 .media-wrap', {
+        width: '100vw',
+        height: '100vh',
+        duration: 0.8,
+        ease: 'power2.inOut'
+      }, 3.2);
+
+      // Phase 8: 타이틀 텍스트 페이드인 (4.2 ~ 4.8)
+      heroScrollTL.to('.food-reveal-title', {
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, 4.2);
+
+      // Phase 9: 설명 텍스트 페이드인 (4.6 ~ 5.2)
+      heroScrollTL.to('.food-reveal-description', {
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, 4.6);
+
+      // Phase 10: 컨트롤 버튼 페이드인 (5.0 ~ 5.6)
+      heroScrollTL.to('.food-reveal-control', {
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, 5.0);
+
+      // Gallery images reveal animation
+      const mainImg = document.querySelector('.gallery-main-img');
+      const img2 = document.querySelector('.gallery-img-2');
+      const img3 = document.querySelector('.gallery-img-3');
+      const img4 = document.querySelector('.gallery-img-4');
+      const img5 = document.querySelector('.gallery-img-5');
+
+      // 초기 상태 설정: 좌측 이미지들은 중앙 뒤에 숨김
+      const imgWidth = (window.innerWidth - 90) / 5; // 이미지 너비 계산
+      gsap.set(img3, { x: imgWidth + 15, autoAlpha: 0 }); // 3번: 1칸 오른쪽 (1번 뒤)
+      gsap.set(img2, { x: (imgWidth + 15) * 2, autoAlpha: 0 }); // 2번: 2칸 오른쪽 (1번 뒤)
+      gsap.set(img4, { x: -(imgWidth + 15), autoAlpha: 0 }); // 4번: 1칸 왼쪽 (1번 뒤)
+      gsap.set(img5, { x: -(imgWidth + 15) * 2, autoAlpha: 0 }); // 5번: 2칸 왼쪽 (1번 뒤)
+
+      // 슬라이드 이미지 초기 상태 (모두 숨김)
+      gsap.set('.gallery-slide-img', { autoAlpha: 0 });
+      // 슬라이드 텍스트 초기 상태 (2~5번 숨김, y 위치 아래로)
+      gsap.set('#business-slide-2, #business-slide-3, #business-slide-4, #business-slide-5', { autoAlpha: 0, y: 30 });
+
+      // Gallery ScrollTrigger (hero pin 이후 시작)
+      // 5개 슬라이드를 위해 스크롤 거리 증가
+      const galleryTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.gallery-section',
+          start: 'top top',
+          end: '+=10000',
+          pin: true,
+          pinSpacing: true,
+          scrub: 1,
+          markers: false
+        }
+      });
+
+      // 중앙 이미지 [1] 모자이크 효과로 나타나기
+      // filter blur로 모자이크 느낌 구현
+      galleryTL.fromTo(mainImg,
+        {
+          autoAlpha: 0,
+          filter: 'blur(20px)',
+          scale: 1.1
+        },
+        {
+          autoAlpha: 1,
+          filter: 'blur(0px)',
+          scale: 1,
+          duration: 1.5,
+          ease: "power2.out"
+        },
+        0);
+
+      // 좌측 이미지 [3] - 중앙에서 왼쪽으로 슬라이딩
+      galleryTL.to(img3, {
+        x: 0,
+        autoAlpha: 1,
+        duration: 1.5,
+        ease: "power3.out"
+      }, 1.8);
+
+      // 우측 이미지 [4] - 중앙에서 오른쪽으로 슬라이딩
+      galleryTL.to(img4, {
+        x: 0,
+        autoAlpha: 1,
+        duration: 1.5,
+        ease: "power3.out"
+      }, 1.8);
+
+      // 맨 좌측 이미지 [2] - 중앙에서 왼쪽으로 슬라이딩
+      galleryTL.to(img2, {
+        x: 0,
+        autoAlpha: 1,
+        duration: 1.5,
+        ease: "power3.out"
+      }, 3.5);
+
+      // 맨 우측 이미지 [5] - 중앙에서 오른쪽으로 슬라이딩
+      galleryTL.to(img5, {
+        x: 0,
+        autoAlpha: 1,
+        duration: 1.5,
+        ease: "power3.out"
+      }, 3.5);
+
+      // 중앙 이미지(1번)가 왼쪽 25% 지점으로 이동 후 확대
+      const gallerySideImages = document.querySelectorAll('.gallery-container > .gallery-img');
+      const businessContentOverlay = document.querySelector('#business-content-overlay');
+      const galleryCenterWrapper = document.querySelector('#gallery-center-wrapper');
+
+      // Phase 1: 나머지 4개 이미지 페이드아웃 (1번은 그대로 유지)
+      galleryTL.to(gallerySideImages, {
+        autoAlpha: 0,
+        duration: 1.5,
+        ease: "power2.inOut"
+      }, 6.5);
+
+      // Phase 2: 1번 이미지가 왼쪽 25vw 중앙으로 부드럽게 이동
+      // 현재 위치(50vw 중앙)에서 왼쪽으로 이동
+      // 확대 후 이미지가 왼쪽 50% 영역에 맞도록 위치 조정
+      galleryTL.to(galleryCenterWrapper, {
+        x: '-30vw',
+        duration: 3,
+        ease: "power2.inOut"
+      }, 8.2);
+
+      // Phase 3: 이동 완료 후, 이미지 자연스럽게 확대
+      // 이미지 원본 크기: 약 20vw, scale 2.2 적용 시 약 44vw (50% 이하)
+      galleryTL.to(galleryCenterWrapper, {
+        scale: 2.2,
+        transformOrigin: 'center center',
+        duration: 2.5,
+        ease: "power2.inOut"
+      }, 11.5);
+
+      // Phase 4: 확대 완료 후 오른쪽 텍스트 페이드인 (Slide 1)
+      galleryTL.to(businessContentOverlay, {
+        autoAlpha: 1,
+        duration: 2,
+        ease: "power2.inOut"
+      }, 14.5);
+
+      // 슬라이드 이미지 및 텍스트 요소
+      const slideImg2 = document.querySelector('#slide-img-2');
+      const slideImg3 = document.querySelector('#slide-img-3');
+      const slideImg4 = document.querySelector('#slide-img-4');
+      const slideImg5 = document.querySelector('#slide-img-5');
+      const slide1 = document.querySelector('#business-slide-1');
+      const slide2 = document.querySelector('#business-slide-2');
+      const slide3 = document.querySelector('#business-slide-3');
+      const slide4 = document.querySelector('#business-slide-4');
+      const slide5 = document.querySelector('#business-slide-5');
+
+      // Slide 2로 전환 (17 ~ 19)
+      galleryTL.to(mainImg, { autoAlpha: 0, duration: 1 }, 17);
+      galleryTL.to(slideImg2, { autoAlpha: 1, duration: 1 }, 17);
+      galleryTL.to(slide1, { autoAlpha: 0, y: -30, duration: 0.8 }, 17);
+      galleryTL.to(slide2, { autoAlpha: 1, y: 0, duration: 0.8 }, 17.5);
+
+      // Slide 3로 전환 (20 ~ 22)
+      galleryTL.to(slideImg2, { autoAlpha: 0, duration: 1 }, 20);
+      galleryTL.to(slideImg3, { autoAlpha: 1, duration: 1 }, 20);
+      galleryTL.to(slide2, { autoAlpha: 0, y: -30, duration: 0.8 }, 20);
+      galleryTL.to(slide3, { autoAlpha: 1, y: 0, duration: 0.8 }, 20.5);
+
+      // Slide 4로 전환 (23 ~ 25)
+      galleryTL.to(slideImg3, { autoAlpha: 0, duration: 1 }, 23);
+      galleryTL.to(slideImg4, { autoAlpha: 1, duration: 1 }, 23);
+      galleryTL.to(slide3, { autoAlpha: 0, y: -30, duration: 0.8 }, 23);
+      galleryTL.to(slide4, { autoAlpha: 1, y: 0, duration: 0.8 }, 23.5);
+
+      // Slide 5로 전환 (26 ~ 28)
+      galleryTL.to(slideImg4, { autoAlpha: 0, duration: 1 }, 26);
+      galleryTL.to(slideImg5, { autoAlpha: 1, duration: 1 }, 26);
+      galleryTL.to(slide4, { autoAlpha: 0, y: -30, duration: 0.8 }, 26);
+      galleryTL.to(slide5, { autoAlpha: 1, y: 0, duration: 0.8 }, 26.5);
+
+      // Share Popup Handler
+      const btnShare = document.querySelector('.btn-share');
+      const sharePopup = document.getElementById('sharePopup');
+
+      btnShare.addEventListener('click', (e) => {
+        e.preventDefault();
+        sharePopup.classList.toggle('active');
+      });
+
+      // Close popup when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.share-wrapper')) {
+          sharePopup.classList.remove('active');
+        }
+      });
+
+      // Set video source
+      const videoElement = document.querySelector('.nexus-video');
+      videoElement.src = './images/video/circle-light-main3.mp4';
+
+      // Vision Section - Scramble Text Animation
+      const statNumbers = document.querySelectorAll('.stat-number');
+      const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ/";
+      
+      // 초기 상태: 랜덤 문자로 설정
+      statNumbers.forEach((stat) => {
+        const finalValue = stat.getAttribute('data-value');
+        stat.textContent = finalValue.split('').map(() => chars[Math.floor(Math.random() * chars.length)]).join('');
+      });
+      
+      // 스크램블 애니메이션 함수
+      function scrambleText(stat) {
+        const finalValue = stat.getAttribute('data-value');
+        let iteration = 0;
+        
+        const scrambleInterval = setInterval(() => {
+          stat.textContent = finalValue
+            .split('')
+            .map((char, index) => {
+              if (index < iteration) {
+                return finalValue[index];
+              }
+              return chars[Math.floor(Math.random() * chars.length)];
+            })
+            .join('');
+          
+          iteration += 1 / 3;
+          
+          if (iteration >= finalValue.length) {
+            clearInterval(scrambleInterval);
+            stat.textContent = finalValue;
+          }
+        }, 40);
+      }
+      
+      // Vision Section이 뷰포트에 들어올 때 애니메이션 시작
+      ScrollTrigger.create({
+        trigger: '.vision-section',
+        start: 'top 70%',
+        once: true,
+        onEnter: () => {
+          // 각 숫자에 딜레이를 두고 순차적으로 애니메이션
+          statNumbers.forEach((stat, index) => {
+            setTimeout(() => {
+              scrambleText(stat);
+            }, index * 200);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+/* #Basic
+================================================== */
+:root{--bg-white:#ffffff;--bg-black:#111111;--text-black:#111111;--text-white:#ffffff;--text-grey:#666666;--text-dark:#111111;--text-light:#999999;--border-color:#e0e0e0;--border-light:#e5e5e5;--accent-blue:#0044cc;--accent-navy:#003d99;--accent-navy-hover:#002d6f;--font-main:'Pretendard',-apple-system,BlinkMacSystemFont,system-ui,Roboto,'Helvetica Neue','Segoe UI','Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic','Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',sans-serif}
+* {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;padding:0;margin:0}
+
+html,body{margin:0;padding:0;height:100%}
+html,body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin:0;padding:0;border:0;vertical-align:baseline}
+body {font-size:15px;font-family: "pretendard", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust:100%;line-height:16px;letter-spacing:-.04rem}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block;margin:0;padding:0}  /* html5 */
+table{border-spacing:0;border-collapse:collapse;}
+
+/* #Links
+================================================== */
+a {text-decoration:none;outline:0;color:inherit;}
+a:focus,a:visited{outline:0;text-decoration:none}
+a:hover{text-decoration:none}
+p a, p a:visited{line-height:inherit;}
+em{font-style:normal}
+
+/* #Lists
+================================================== */
+ol, ul, dl {list-style:none}
+ul{list-style:none outside}
+ol{list-style: decimal}
+ul.square {list-style: square outside}
+ul.circle {list-style: circle outside}
+
+/* #Images
+================================================== */
+img, a img {
+  border: none !important;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  image-rendering: optimizeQuality;
+}
+
+/* #Other elements
+================================================== */
+iframe, object, embed{max-width:100%}
+
+/* #Misc
+================================================== */
+.hidden {position: absolute;top: 0;visibility: hidden}
+.flex{display:flex;}
+.txtr{text-align:right !Important}
+.txtl{text-align:left !Important}
+.txtc{text-align:center !Important}
+
+/* #padding margin custom
+================================================== */
+.w100{width:100%}
+.w20{width:20%}
+.w30{width:30%}
+.w70{width:70%}
+.w80{width:80%}
+
+
+.w_80{width:80px}
+.w_100{width:100px}
+.w_130{width:130px}
+.w_150{width:150px}
+.w_200{width:150px}
+
+
+/* margin */
+.mr-1{margin-right:1px}
+.mr-4{margin-right:4px}
+.mt-4{margin-top:4px}
+.ml-1{margin-left:1px}
+.ml-4{margin-left:4px}
+.mt_1{margin-top:-1px}
+
+.mb-4{margin-bottom:4px}
+.mb-10{margin-bottom:10px}
+
+
+/* #form
+================================================== */
+
+/* form reset */
+input::-ms-clear {display:none;}
+select::-ms-expand {display:none;}  /*IE10,11*/
+select{appearance:none;-webkit-appearance: none; /*Chrome*/-moz-appearance: none; /*Firefox*/}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {-webkit-appearance:none;}
+input[type=text],select,textarea {-webkit-appearance:none;-moz-appearance:none; -ms-appearance:none; -o-appearance:none;appearance:none;
+vertical-align:middle;transition:border-color ease-in-out 0.225s; -webkit-transition:border-color ease-in-out 0.225s;outline:none;}
+
+select,input{font-family:"pretendard";font-size:16px}
+
+/* input  */
+input[type=text]{border:1px solid #cdd0dd;height:45px;line-height:43px;min-width:85px;color:#70789D;padding:0 10px;font-size:15px}
+
+input[type=radio]{border:1px solid #cdd0dd;width:18px;height:18px;border-radius:50%}
+input::placeholder {font-size:16px;color: #70789D;}
+
+/* select */
+select{border:1px solid #cdd0dd;height:45px;line-height:43px;color:#70789D;
+  background:#fff url(../images/common/arrow_select_off.png) no-repeat;background-size:12px;
+  background-position:95% center;padding:0 20px 0 10px
+  }
+
+
+/* readonly */
+input:not([type=checkbox]):not([type=radio])[readonly] {padding:0 20px;}
+input:not([type=checkbox]):not([type=radio])[readonly],
+select[readonly] {color:#555; background-color:#F7F8FB; border:1px solid #ddd;}
+
+
+/* #animation
+================================================== */
+.animate{-webkit-transition: all 0.3s;-moz-transition: all 0.3s;transition: all 0.3s;}
