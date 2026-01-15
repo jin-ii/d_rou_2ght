@@ -36,18 +36,38 @@
                 <a href="#" class="share-item">블로그</a>
               </div>
             </div>
+            <span class="user-info"><strong class="user-name">wedb</strong>님 접속하였습니다.</span>
             <a href="login.html" class="btn-login">로그인</a>
-            <button class="btn-menu"></button>
+            <button class="btn-menu" id="btn-menu" aria-label="메뉴 열기"><span class="menu-line"></span></button>
           </div>
         </div>
       </nav>
     </header>
 
+    <!-- Fullscreen Menu -->
+    <div class="fullscreen-menu" id="fullscreen-menu">
+      <nav class="fullscreen-nav">
+        <ul class="fullscreen-links">
+          <li><a href="#nexus">NEXUS 소개</a></li>
+          <li><a href="#dashboard">대시보드</a></li>
+          <li><a href="drought_status.html">가뭄현황</a></li>
+          <li><a href="#report">보고서</a></li>
+        </ul>
+        <div class="fullscreen-footer">
+          <p class="fullscreen-slogan">통합적 자원 관리의 새로운 기준</p>
+          <p class="fullscreen-brand">NEWS-ADAN</p>
+        </div>
+      </nav>
+    </div>
+
     <!-- Main Hero Section -->
     <main class="hero">
+      <div class="hero-intro-bg" id="hero-intro-bg"></div>
       <div class="container">
         <div class="hero-content">
-          <h1 class="hero-title" id="hero-title"><span class="title-line">통합적 자원 관리의 새로운 기준</span></h1>
+          <h1 class="hero-title" id="hero-title">
+            <span class="title-line" data-line="1">통합적 자원 관리의 새로운 기준</span>
+          </h1>
           <p class="hero-subtitle" id="hero-subtitle">NEWS-ADAN</p>
         </div>
         <div class="hero-content-visual">    
@@ -227,25 +247,45 @@
       gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
       // ============================================
-      // Header Slide Down Animation on Page Load
+      // Intro Animation Sequence
       // ============================================
-      gsap.set('.header', { y: -90 }); // 초기 상태: 위쪽에 숨김
-
-      gsap.to('.header', {
-        y: 0, // 제위치로 이동
-        duration: 0.8,
-        ease: 'power3.out',
-        delay: 0.1
-      });
-
-      // Hero title text animation with GSAP
       const heroTitle = document.getElementById('hero-title');
       const heroSubtitle = document.getElementById('hero-subtitle');
       const titleLines = heroTitle.querySelectorAll('.title-line');
+      const heroIntroBg = document.getElementById('hero-intro-bg');
 
-      // 초기 상태: 보이는 상태로 설정 (스크롤 0에서 보여야 함)
-      gsap.set(titleLines, { opacity: 1, y: 0 });
-      gsap.set(heroSubtitle, { opacity: 1, y: 0 });
+      // 초기 상태 설정
+      gsap.set('.header', { y: -90, opacity: 0 }); // 헤더 숨김
+      gsap.set(titleLines, { opacity: 0, y: 60 });
+      gsap.set(heroSubtitle, { opacity: 0, y: 30 });
+      gsap.set(heroIntroBg, { opacity: 1 });
+
+      // 마스터 인트로 타임라인
+      const introTL = gsap.timeline({ delay: 0.3 });
+      
+      // Phase 1: 타이틀 "통합적 자원 관리의 새로운 기준" 나타나기
+      introTL.to(titleLines[0], {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out'
+      });
+      
+      // Phase 2: 서브타이틀 "NEWS-ADAN" 나타나기
+      introTL.to(heroSubtitle, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out'
+      }, '-=0.5');
+      
+      // Phase 3: 잠시 대기 후 헤더 슬라이드 다운
+      introTL.to('.header', {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out'
+      }, '+=0.8');
 
       // GSAP elements
       const heroMedia1 = document.querySelector('.hero-media1 .txt-wrap');
@@ -277,29 +317,31 @@
         }
       });
 
+      // Phase 0: 네이비 배경 페이드아웃 (스크롤 시작하면 바로)
+      heroScrollTL.fromTo(heroIntroBg, 
+        { opacity: 1 },
+        { opacity: 0, duration: 0.8, ease: 'power2.inOut' }, 
+      0);
+
       // Phase 1: 타이틀과 서브타이틀 페이드아웃 (스크롤 시작하면 바로 사라지기 시작)
-      // 각 제목 라인을 개별 애니메이션
+      // 각 제목 라인을 개별 애니메이션 - fromTo로 시작/끝 상태 명시
       titleLines.forEach((line, index) => {
-        heroScrollTL.to(line, {
-          opacity: 0,
-          y: -30,
-          duration: 0.5,
-          ease: 'power2.inOut'
-        }, index * 0.1);
+        heroScrollTL.fromTo(line, 
+          { opacity: 1, y: 0 },
+          { opacity: 0, y: -50, duration: 0.5, ease: 'power2.inOut' }, 
+        index * 0.1);
       });
 
-      heroScrollTL.to(heroSubtitle, {
-        opacity: 0,
-        y: -30,
-        duration: 0.5,
-        ease: 'power2.inOut'
-      }, titleLines.length * 0.1);
+      heroScrollTL.fromTo(heroSubtitle, 
+        { opacity: 1, y: 0 },
+        { opacity: 0, y: -30, duration: 0.5, ease: 'power2.inOut' }, 
+      titleLines.length * 0.1);
       
       // heroContent visibility 제어 (스크롤 역방향에서도 복구되도록)
-      heroScrollTL.to(heroContent, {
-        autoAlpha: 0,
-        duration: 0.01
-      }, 0.6);
+      heroScrollTL.fromTo(heroContent, 
+        { autoAlpha: 1 },
+        { autoAlpha: 0, duration: 0.01 }, 
+      0.6);
 
       // Phase 2: WATER 텍스트 슬라이드인 (0.8 ~ 1.4)
       heroScrollTL.to(heroMedia1, {
@@ -412,118 +454,7 @@
       const img3 = document.querySelector('.gallery-img-3');
       const img4 = document.querySelector('.gallery-img-4');
       const img5 = document.querySelector('.gallery-img-5');
-
-      // 초기 상태 설정: 좌측 이미지들은 중앙 뒤에 숨김
-      const imgWidth = (window.innerWidth - 90) / 5; // 이미지 너비 계산
-      gsap.set(img3, { x: imgWidth + 15, autoAlpha: 0 }); // 3번: 1칸 오른쪽 (1번 뒤)
-      gsap.set(img2, { x: (imgWidth + 15) * 2, autoAlpha: 0 }); // 2번: 2칸 오른쪽 (1번 뒤)
-      gsap.set(img4, { x: -(imgWidth + 15), autoAlpha: 0 }); // 4번: 1칸 왼쪽 (1번 뒤)
-      gsap.set(img5, { x: -(imgWidth + 15) * 2, autoAlpha: 0 }); // 5번: 2칸 왼쪽 (1번 뒤)
-
-      // 슬라이드 이미지 초기 상태 (모두 숨김)
-      gsap.set('.gallery-slide-img', { autoAlpha: 0 });
-      // 슬라이드 텍스트 초기 상태 (2~5번 숨김, y 위치 아래로)
-      gsap.set('#business-slide-2, #business-slide-3, #business-slide-4, #business-slide-5', { autoAlpha: 0, y: 30 });
-
-      // Gallery ScrollTrigger (hero pin 이후 시작)
-      // 5개 슬라이드를 위해 스크롤 거리 증가
-      const galleryTL = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.gallery-section',
-          start: 'top top',
-          end: '+=10000',
-          pin: true,
-          pinSpacing: true,
-          scrub: 1,
-          markers: false
-        }
-      });
-
-      // 중앙 이미지 [1] 모자이크 효과로 나타나기
-      // filter blur로 모자이크 느낌 구현
-      galleryTL.fromTo(mainImg,
-        {
-          autoAlpha: 0,
-          filter: 'blur(20px)',
-          scale: 1.1
-        },
-        {
-          autoAlpha: 1,
-          filter: 'blur(0px)',
-          scale: 1,
-          duration: 1.5,
-          ease: "power2.out"
-        },
-        0);
-
-      // 좌측 이미지 [3] - 중앙에서 왼쪽으로 슬라이딩
-      galleryTL.to(img3, {
-        x: 0,
-        autoAlpha: 1,
-        duration: 1.5,
-        ease: "power3.out"
-      }, 1.8);
-
-      // 우측 이미지 [4] - 중앙에서 오른쪽으로 슬라이딩
-      galleryTL.to(img4, {
-        x: 0,
-        autoAlpha: 1,
-        duration: 1.5,
-        ease: "power3.out"
-      }, 1.8);
-
-      // 맨 좌측 이미지 [2] - 중앙에서 왼쪽으로 슬라이딩
-      galleryTL.to(img2, {
-        x: 0,
-        autoAlpha: 1,
-        duration: 1.5,
-        ease: "power3.out"
-      }, 3.5);
-
-      // 맨 우측 이미지 [5] - 중앙에서 오른쪽으로 슬라이딩
-      galleryTL.to(img5, {
-        x: 0,
-        autoAlpha: 1,
-        duration: 1.5,
-        ease: "power3.out"
-      }, 3.5);
-
-      // 중앙 이미지(1번)가 왼쪽 25% 지점으로 이동 후 확대
-      const gallerySideImages = document.querySelectorAll('.gallery-container > .gallery-img');
-      const businessContentOverlay = document.querySelector('#business-content-overlay');
-      const galleryCenterWrapper = document.querySelector('#gallery-center-wrapper');
-
-      // Phase 1: 나머지 4개 이미지 페이드아웃 (1번은 그대로 유지)
-      galleryTL.to(gallerySideImages, {
-        autoAlpha: 0,
-        duration: 1.5,
-        ease: "power2.inOut"
-      }, 6.5);
-
-      // Phase 2: 1번 이미지가 왼쪽 25vw 중앙으로 부드럽게 이동
-      // 현재 위치(50vw 중앙)에서 왼쪽으로 이동
-      // 확대 후 이미지가 왼쪽 50% 영역에 맞도록 위치 조정
-      galleryTL.to(galleryCenterWrapper, {
-        x: '-30vw',
-        duration: 3,
-        ease: "power2.inOut"
-      }, 8.2);
-
-      // Phase 3: 이동 완료 후, 이미지 자연스럽게 확대
-      // 이미지 원본 크기: 약 20vw, scale 2.2 적용 시 약 44vw (50% 이하)
-      galleryTL.to(galleryCenterWrapper, {
-        scale: 2.2,
-        transformOrigin: 'center center',
-        duration: 2.5,
-        ease: "power2.inOut"
-      }, 11.5);
-
-      // Phase 4: 확대 완료 후 오른쪽 텍스트 페이드인 (Slide 1)
-      galleryTL.to(businessContentOverlay, {
-        autoAlpha: 1,
-        duration: 2,
-        ease: "power2.inOut"
-      }, 14.5);
+      const isMobile = window.innerWidth <= 768;
 
       // 슬라이드 이미지 및 텍스트 요소
       const slideImg2 = document.querySelector('#slide-img-2');
@@ -535,30 +466,197 @@
       const slide3 = document.querySelector('#business-slide-3');
       const slide4 = document.querySelector('#business-slide-4');
       const slide5 = document.querySelector('#business-slide-5');
+      const businessContentOverlay = document.querySelector('#business-content-overlay');
+      const galleryCenterWrapper = document.querySelector('#gallery-center-wrapper');
 
-      // Slide 2로 전환 (17 ~ 19)
-      galleryTL.to(mainImg, { autoAlpha: 0, duration: 1 }, 17);
-      galleryTL.to(slideImg2, { autoAlpha: 1, duration: 1 }, 17);
-      galleryTL.to(slide1, { autoAlpha: 0, y: -30, duration: 0.8 }, 17);
-      galleryTL.to(slide2, { autoAlpha: 1, y: 0, duration: 0.8 }, 17.5);
+      if (isMobile) {
+        // ============================================
+        // Mobile Gallery Animation
+        // ============================================
+        // 초기 상태 설정
+        gsap.set('.gallery-slide-img', { autoAlpha: 0 });
+        gsap.set([slide1, slide2, slide3, slide4, slide5], { autoAlpha: 0, y: 20 });
+        gsap.set(mainImg, { autoAlpha: 0 });
+        gsap.set(businessContentOverlay, { autoAlpha: 1 });
 
-      // Slide 3로 전환 (20 ~ 22)
-      galleryTL.to(slideImg2, { autoAlpha: 0, duration: 1 }, 20);
-      galleryTL.to(slideImg3, { autoAlpha: 1, duration: 1 }, 20);
-      galleryTL.to(slide2, { autoAlpha: 0, y: -30, duration: 0.8 }, 20);
-      galleryTL.to(slide3, { autoAlpha: 1, y: 0, duration: 0.8 }, 20.5);
+        const mobileGalleryTL = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.gallery-section',
+            start: 'top top',
+            end: '+=5000',
+            pin: true,
+            pinSpacing: true,
+            scrub: 1,
+            markers: false
+          }
+        });
 
-      // Slide 4로 전환 (23 ~ 25)
-      galleryTL.to(slideImg3, { autoAlpha: 0, duration: 1 }, 23);
-      galleryTL.to(slideImg4, { autoAlpha: 1, duration: 1 }, 23);
-      galleryTL.to(slide3, { autoAlpha: 0, y: -30, duration: 0.8 }, 23);
-      galleryTL.to(slide4, { autoAlpha: 1, y: 0, duration: 0.8 }, 23.5);
+        // Slide 1: 이미지 1 + 텍스트 1 나타나기
+        mobileGalleryTL.to(mainImg, { autoAlpha: 1, duration: 1 }, 0);
+        mobileGalleryTL.to(slide1, { autoAlpha: 1, y: 0, duration: 0.8 }, 0.3);
 
-      // Slide 5로 전환 (26 ~ 28)
-      galleryTL.to(slideImg4, { autoAlpha: 0, duration: 1 }, 26);
-      galleryTL.to(slideImg5, { autoAlpha: 1, duration: 1 }, 26);
-      galleryTL.to(slide4, { autoAlpha: 0, y: -30, duration: 0.8 }, 26);
-      galleryTL.to(slide5, { autoAlpha: 1, y: 0, duration: 0.8 }, 26.5);
+        // Slide 2로 전환
+        mobileGalleryTL.to(mainImg, { autoAlpha: 0, duration: 0.8 }, 3);
+        mobileGalleryTL.to(slide1, { autoAlpha: 0, y: -20, duration: 0.6 }, 3);
+        mobileGalleryTL.to(slideImg2, { autoAlpha: 1, duration: 0.8 }, 3.5);
+        mobileGalleryTL.to(slide2, { autoAlpha: 1, y: 0, duration: 0.6 }, 3.8);
+
+        // Slide 3로 전환
+        mobileGalleryTL.to(slideImg2, { autoAlpha: 0, duration: 0.8 }, 6);
+        mobileGalleryTL.to(slide2, { autoAlpha: 0, y: -20, duration: 0.6 }, 6);
+        mobileGalleryTL.to(slideImg3, { autoAlpha: 1, duration: 0.8 }, 6.5);
+        mobileGalleryTL.to(slide3, { autoAlpha: 1, y: 0, duration: 0.6 }, 6.8);
+
+        // Slide 4로 전환
+        mobileGalleryTL.to(slideImg3, { autoAlpha: 0, duration: 0.8 }, 9);
+        mobileGalleryTL.to(slide3, { autoAlpha: 0, y: -20, duration: 0.6 }, 9);
+        mobileGalleryTL.to(slideImg4, { autoAlpha: 1, duration: 0.8 }, 9.5);
+        mobileGalleryTL.to(slide4, { autoAlpha: 1, y: 0, duration: 0.6 }, 9.8);
+
+        // Slide 5로 전환
+        mobileGalleryTL.to(slideImg4, { autoAlpha: 0, duration: 0.8 }, 12);
+        mobileGalleryTL.to(slide4, { autoAlpha: 0, y: -20, duration: 0.6 }, 12);
+        mobileGalleryTL.to(slideImg5, { autoAlpha: 1, duration: 0.8 }, 12.5);
+        mobileGalleryTL.to(slide5, { autoAlpha: 1, y: 0, duration: 0.6 }, 12.8);
+
+      } else {
+        // ============================================
+        // Desktop Gallery Animation (기존 코드 유지)
+        // ============================================
+        // 초기 상태 설정: 좌측 이미지들은 중앙 뒤에 숨김
+        const imgWidth = (window.innerWidth - 90) / 5; // 이미지 너비 계산
+        gsap.set(img3, { x: imgWidth + 15, autoAlpha: 0 }); // 3번: 1칸 오른쪽 (1번 뒤)
+        gsap.set(img2, { x: (imgWidth + 15) * 2, autoAlpha: 0 }); // 2번: 2칸 오른쪽 (1번 뒤)
+        gsap.set(img4, { x: -(imgWidth + 15), autoAlpha: 0 }); // 4번: 1칸 왼쪽 (1번 뒤)
+        gsap.set(img5, { x: -(imgWidth + 15) * 2, autoAlpha: 0 }); // 5번: 2칸 왼쪽 (1번 뒤)
+
+        // 슬라이드 이미지 초기 상태 (모두 숨김)
+        gsap.set('.gallery-slide-img', { autoAlpha: 0 });
+        // 슬라이드 텍스트 초기 상태 (2~5번 숨김, y 위치 아래로)
+        gsap.set('#business-slide-2, #business-slide-3, #business-slide-4, #business-slide-5', { autoAlpha: 0, y: 30 });
+
+        // Gallery ScrollTrigger (hero pin 이후 시작)
+        // 5개 슬라이드를 위해 스크롤 거리 증가
+        const galleryTL = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.gallery-section',
+            start: 'top top',
+            end: '+=10000',
+            pin: true,
+            pinSpacing: true,
+            scrub: 1,
+            markers: false
+          }
+        });
+
+        // 중앙 이미지 [1] 모자이크 효과로 나타나기
+        // filter blur로 모자이크 느낌 구현
+        galleryTL.fromTo(mainImg,
+          {
+            autoAlpha: 0,
+            filter: 'blur(20px)',
+            scale: 1.1
+          },
+          {
+            autoAlpha: 1,
+            filter: 'blur(0px)',
+            scale: 1,
+            duration: 1.5,
+            ease: "power2.out"
+          },
+          0);
+
+        // 좌측 이미지 [3] - 중앙에서 왼쪽으로 슬라이딩
+        galleryTL.to(img3, {
+          x: 0,
+          autoAlpha: 1,
+          duration: 1.5,
+          ease: "power3.out"
+        }, 1.8);
+
+        // 우측 이미지 [4] - 중앙에서 오른쪽으로 슬라이딩
+        galleryTL.to(img4, {
+          x: 0,
+          autoAlpha: 1,
+          duration: 1.5,
+          ease: "power3.out"
+        }, 1.8);
+
+        // 맨 좌측 이미지 [2] - 중앙에서 왼쪽으로 슬라이딩
+        galleryTL.to(img2, {
+          x: 0,
+          autoAlpha: 1,
+          duration: 1.5,
+          ease: "power3.out"
+        }, 3.5);
+
+        // 맨 우측 이미지 [5] - 중앙에서 오른쪽으로 슬라이딩
+        galleryTL.to(img5, {
+          x: 0,
+          autoAlpha: 1,
+          duration: 1.5,
+          ease: "power3.out"
+        }, 3.5);
+
+        // 중앙 이미지(1번)가 왼쪽 25% 지점으로 이동 후 확대
+        const gallerySideImages = document.querySelectorAll('.gallery-container > .gallery-img');
+
+        // Phase 1: 나머지 4개 이미지 페이드아웃 (1번은 그대로 유지)
+        galleryTL.to(gallerySideImages, {
+          autoAlpha: 0,
+          duration: 1.5,
+          ease: "power2.inOut"
+        }, 6.5);
+
+        // Phase 2: 1번 이미지가 왼쪽 25vw 중앙으로 부드럽게 이동
+        // 현재 위치(50vw 중앙)에서 왼쪽으로 이동
+        // 확대 후 이미지가 왼쪽 50% 영역에 맞도록 위치 조정
+        galleryTL.to(galleryCenterWrapper, {
+          x: '-30vw',
+          duration: 3,
+          ease: "power2.inOut"
+        }, 8.2);
+
+        // Phase 3: 이동 완료 후, 이미지 자연스럽게 확대
+        // 이미지 원본 크기: 약 20vw, scale 2.2 적용 시 약 44vw (50% 이하)
+        galleryTL.to(galleryCenterWrapper, {
+          scale: 2.2,
+          transformOrigin: 'center center',
+          duration: 2.5,
+          ease: "power2.inOut"
+        }, 11.5);
+
+        // Phase 4: 확대 완료 후 오른쪽 텍스트 페이드인 (Slide 1)
+        galleryTL.to(businessContentOverlay, {
+          autoAlpha: 1,
+          duration: 2,
+          ease: "power2.inOut"
+        }, 14.5);
+
+        // Slide 2로 전환 (17 ~ 19)
+        galleryTL.to(mainImg, { autoAlpha: 0, duration: 1 }, 17);
+        galleryTL.to(slideImg2, { autoAlpha: 1, duration: 1 }, 17);
+        galleryTL.to(slide1, { autoAlpha: 0, y: -30, duration: 0.8 }, 17);
+        galleryTL.to(slide2, { autoAlpha: 1, y: 0, duration: 0.8 }, 17.5);
+
+        // Slide 3로 전환 (20 ~ 22)
+        galleryTL.to(slideImg2, { autoAlpha: 0, duration: 1 }, 20);
+        galleryTL.to(slideImg3, { autoAlpha: 1, duration: 1 }, 20);
+        galleryTL.to(slide2, { autoAlpha: 0, y: -30, duration: 0.8 }, 20);
+        galleryTL.to(slide3, { autoAlpha: 1, y: 0, duration: 0.8 }, 20.5);
+
+        // Slide 4로 전환 (23 ~ 25)
+        galleryTL.to(slideImg3, { autoAlpha: 0, duration: 1 }, 23);
+        galleryTL.to(slideImg4, { autoAlpha: 1, duration: 1 }, 23);
+        galleryTL.to(slide3, { autoAlpha: 0, y: -30, duration: 0.8 }, 23);
+        galleryTL.to(slide4, { autoAlpha: 1, y: 0, duration: 0.8 }, 23.5);
+
+        // Slide 5로 전환 (26 ~ 28)
+        galleryTL.to(slideImg4, { autoAlpha: 0, duration: 1 }, 26);
+        galleryTL.to(slideImg5, { autoAlpha: 1, duration: 1 }, 26);
+        galleryTL.to(slide4, { autoAlpha: 0, y: -30, duration: 0.8 }, 26);
+        galleryTL.to(slide5, { autoAlpha: 1, y: 0, duration: 0.8 }, 26.5);
+      }
 
       // Share Popup Handler
       const btnShare = document.querySelector('.btn-share');
@@ -573,6 +671,37 @@
       document.addEventListener('click', (e) => {
         if (!e.target.closest('.share-wrapper')) {
           sharePopup.classList.remove('active');
+        }
+      });
+
+      // ============================================
+      // Fullscreen Menu Handler
+      // ============================================
+      const btnMenu = document.getElementById('btn-menu');
+      const fullscreenMenu = document.getElementById('fullscreen-menu');
+      const fullscreenLinks = document.querySelectorAll('.fullscreen-links a');
+
+      btnMenu.addEventListener('click', () => {
+        btnMenu.classList.toggle('active');
+        fullscreenMenu.classList.toggle('active');
+        document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : '';
+      });
+
+      // 메뉴 링크 클릭 시 메뉴 닫기
+      fullscreenLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          btnMenu.classList.remove('active');
+          fullscreenMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // ESC 키로 메뉴 닫기
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && fullscreenMenu.classList.contains('active')) {
+          btnMenu.classList.remove('active');
+          fullscreenMenu.classList.remove('active');
+          document.body.style.overflow = '';
         }
       });
 
@@ -628,6 +757,23 @@
             }, index * 200);
           });
         }
+      });
+
+      // ============================================
+      // 화면 크기 변경 시 페이지 새로고침 (모바일/데스크탑 전환)
+      // ============================================
+      let currentMode = window.innerWidth <= 768 ? 'mobile' : 'desktop';
+      let resizeTimer;
+      
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          const newMode = window.innerWidth <= 768 ? 'mobile' : 'desktop';
+          if (newMode !== currentMode) {
+            // 모바일 ↔ 데스크탑 전환 시 새로고침
+            location.reload();
+          }
+        }, 300);
       });
     </script>
   </body>
