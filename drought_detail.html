@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/drought-status.css" />
   </head>
   <body>
@@ -75,102 +76,81 @@
       </section>    
 
       <div class="sub_title_wrap">
-      <div class="sub_common_title">가뭄현황</div>
-        <div class="sub_location">HOME > 가뭄현황 > 전체</div>
+        <div class="sub_common_title">토양유효수분율 관리</div>
+        <div class="sub_location">HOME > 가뭄현황 > 토양유효수분율 관리</div>
       </div>
 
-      <section class="drought-status-section">
-        <button class="btn_calendar"><span class="current_date">2026년 1월 11일</span><span class="btn_open"></span></button>
-
-        <div class="farm-crops-group">
-          <label class="radio_item">
-            <input type="radio" name="drought_type" value="콩" checked>
-            <span class="radio_label">콩<img src="./images/icon_crops_bean_off.png" alt="콩" class="crop_icon bean"></span>
-          </label>
-          <label class="radio_item">
-            <input type="radio" name="drought_type" value="양파">
-            <span class="radio_label">양파<img src="./images/icon_crops_onion_off.png" alt="양파" class="crop_icon onion"></span>
-          </label>
-          <label class="radio_item">
-            <input type="radio" name="drought_type" value="배추">
-            <span class="radio_label">배추<img src="./images/icon_crops_cabbage_off.png" alt="배추" class="crop_icon cabbage"></span>
-          </label>
-          <label class="radio_item">
-            <input type="radio" name="drought_type" value="고추">
-            <span class="radio_label">고추<img src="./images/icon_crops_pepper_off.png" alt="고추" class="crop_icon pepper"></span>
-          </label>
-          <label class="radio_item">
-            <input type="radio" name="drought_type" value="고구마">
-            <span class="radio_label">고구마<img src="./images/icon_crops_sweet_potato_off.png" alt="고구마" class="crop_icon sweet_potato"></span>
-          </label>
+      <section class="drought-detail-section">
+        <div class="filter-box">
+          <div class="filter-row">
+            <div class="search-input-wrap">
+              <input type="text" placeholder="지역코드, 지점명으로 검색..." class="form-input">
+              <button class="form-btn btn-primary"><i class="fas fa-search"></i> 검색</button>
+            </div>
+            <button class="form-btn btn-secondary"><i class="fas fa-arrow-rotate-right"></i> 새로고침</button>
+            <div class="filter-group">
+              <label class="form-label">조회 날짜</label>
+              <button class="form-btn btn-secondary"><i class="fas fa-calendar"></i> 2026년 1월 12일</button>
+            </div>
+            <div class="filter-group">
+              <label class="form-label">작물 타입</label>
+              <select class="form-select" style="width:250px">
+                <option value="">선택하세요</option>
+                <option value="onion">양파(01.01~06.10, 11.01~12.31)</option>
+                <option value="pepper">고추</option>
+                <option value="bean">콩</option>
+                <option value="sweet_potato">고구마</option>
+                <option value="cabbage">배추</option>
+              </select>
+            </div>
+          </div>
         </div>
-
-
       </section>
 
      
 
       <div class="sub_contents">
         <div class="sub_contents_inner">
-          <!-- map_box -->
-          <div class="map_common_box">
-            <div class="area_title"><h3>토양유효수분율 <span class="date">2025-01-11기준</span></h3></div>
-            <div class="area_map">
-              <div class="legend_wrap">
-                <span class="legend_point color1">관수시점 <span class="count"><strong>0</strong>개</span></span>
-                <span class="legend_point color2">관수불필요 <span class="count"><strong>80~999%</strong></span></span>
-                <span class="legend_point color3">상위엽위조 <span class="count"><strong>167</strong>개</span></span>
-                <span class="legend_point color4">전체위조 <span class="count"><strong>167</strong>개</span></span>
-                <span class="legend_point color5">고사 <span class="count"><strong>167</strong>개</span></span>
-                <span class="legend_point color6">결측 <span class="count"><strong>0</strong>개</span></span>
-              </div>
-            </div>         
+          <h3 class="h3_title">토양유효수분율 관리</h3>
+          <div class="table_type1">
+            <table>
+              <thead>
+                <tr>
+                  <th>코드</th>
+                  <th>지역</th>
+                  <th>토양유효수분율</th>
+                  <th>무강수 1주후</th>
+                  <th>1주후 예상강수</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <!-- map_box -->
 
-          <!-- map_box -->
-          <div class="map_common_box">
-            <div class="area_title"><h3>토양유효수분율 <span class="date">2025-01-11기준</span></h3></div>
-            <div class="area_map">
-              <div class="legend_wrap">
-                <span class="legend_point color1">관수불필요 <span class="count"><strong>0</strong>개</span></span>
-                <span class="legend_point color2">관수시점점 <span class="count"><strong>80~999%</strong></span></span>
-                <span class="legend_point color3">상위엽위조 <span class="count"><strong>167</strong>개</span></span>
-                <span class="legend_point color4">전체위조 <span class="count"><strong>167</strong>개</span></span>
-                <span class="legend_point color5">고사 <span class="count"><strong>167</strong>개</span></span>
-                <span class="legend_point color6">결측 <span class="count"><strong>0</strong>개</span></span>
-              </div>
-            </div>         
-          </div>
-          <!-- map_box -->
-
-          <!-- map_box -->
-          <div class="map_common_box">
-            <div class="area_title"><h3>토양유효수분율 <span class="date">2025-01-11기준</span></h3></div>
-            <div class="area_map">
-              <div class="legend_wrap">
-                <span class="legend_point color1">관수불필요<span class="count"><strong>45 ~ 60%</strong>개</span></span>
-                <span class="legend_point color2">관수시점 <span class="count"><strong>80~999%</strong></span></span>
-                <span class="legend_point color3">상위엽위조 <span class="count"><strong>167</strong>개</span></span>
-                <span class="legend_point color4">전체위조 <span class="count"><strong>167</strong>개</span></span>
-                <span class="legend_point color5">고사 <span class="count"><strong>167</strong>개</span></span>
-                <span class="legend_point color6">결측 <span class="count"><strong>0</strong>개</span></span>
-              </div>
-            </div>         
-          </div>
-          <!-- map_box -->
-          
+          <!-- pagination -->
+          <ul class="pagination">
+            <li><a href="" class="arrow2 forward"><span class="hidden">맨앞으로</span></a></li>
+            <li><a href="" class="arrow prev"><span class="hidden">이전</span></a></li>
+            <li class="active"><a href="" class="td_link">1</a></li>
+            <li><a href="" class="td_link">2</a></li>
+            <li><a href="" class="td_link">3</a></li>
+            <li><a href="" class="td_link">4</a></li>
+            <li><a href="" class="td_link">5</a></li>
+            <li><a href="" class="arrow next"><span class="hidden">다음</span></a></li>
+            <li><a href="" class="arrow2 last"><span class="hidden">맨두ㅢ로</span></a></li>
+        </ul>
+        <!-- //pagination -->
+         
         </div>
 
-        <!-- 하단 범례 바 -->
-        <div class="legend_bar">
-          <span class="legend_point color1"><span class="legend_name">관수시점</span><span class="legend_range">0개</span></span>
-          <span class="legend_point color2"><span class="legend_name">관수불필요</span><span class="legend_range">80~999%</span></span>
-          <span class="legend_point color3"><span class="legend_name">상위엽위조</span><span class="legend_range">40 ~ 45%</span></span>
-          <span class="legend_point color4"><span class="legend_name">전체위조</span><span class="legend_range">10 ~ 40%</span></span>
-          <span class="legend_point color5"><span class="legend_name">고사</span><span class="legend_range">0 ~ 10%</span></span>
-          <span class="legend_point color6"><span class="legend_name">결측</span><span class="legend_range">-9999 ~ 0%</span></span>
-        </div>
       </div>
 
 
@@ -275,6 +255,50 @@
           }
         });
       }
+
+      // Pagination Handler
+      const paginationPrevBtn = document.querySelector('.pagination-prev');
+      const paginationNextBtn = document.querySelector('.pagination-next');
+      const paginationNumbers = document.querySelectorAll('.pagination-number');
+      let currentPage = 1;
+      const totalPages = 5;
+
+      paginationNumbers.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+          currentPage = index + 1;
+          updatePagination();
+        });
+      });
+
+      paginationPrevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          updatePagination();
+        }
+      });
+
+      paginationNextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          updatePagination();
+        }
+      });
+
+      function updatePagination() {
+        // Update active number button
+        paginationNumbers.forEach((btn) => btn.classList.remove('active'));
+        paginationNumbers[currentPage - 1].classList.add('active');
+
+        // Update prev/next button states
+        paginationPrevBtn.disabled = currentPage === 1;
+        paginationNextBtn.disabled = currentPage === totalPages;
+
+        // Update page content (if needed)
+        console.log(`Current page: ${currentPage}`);
+      }
+
+      // Initialize pagination state
+      updatePagination();
     </script>
   </body>
 </html>

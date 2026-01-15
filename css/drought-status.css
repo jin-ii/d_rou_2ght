@@ -2,39 +2,10 @@
    # 가뭄현황 페이지 스타일
    ================================================== */
 
-/* # 서브 공통 컨테이너 */
-.sub_container{width:100%;padding-top:90px}
 
-.sub_common_top{position:relative;width:100%;height:95px;display:flex;align-items:flex-end;justify-content:center}
-.sub_common_top.sub_visual1{background:url('../images/sub_visual1.jpg') no-repeat center center;background-size:cover}
-.sub_common_top.sub_visual2{background:url('../images/sub_visual2.jpg') no-repeat center center;background-size:cover}
-.sub_common_top.sub_visual3{background:url('../images/sub_visual3.jpg') no-repeat center center;background-size:cover}
-.sub_common_top.sub_visual4{background:url('../images/sub_visual4.jpg') no-repeat center center;background-size:cover}
-.sub_common_top.sub_visual5{background:url('../images/sub_visual5.jpg') no-repeat center center;background-size:cover}
-
-/* # 서브 공통 탭메뉴 */
-.sub_common_top .sub_common_tabmenu{display:flex;width:100%;max-width:1600px;margin:0 auto;list-style:none;padding:0;gap:1px}
-.sub_common_tabmenu li{flex:1;display:flex}
-.sub_common_tabmenu li a{display:flex;align-items:center;justify-content:center;width:100%;height:55px;background:#E2E2E2;color:#767676;font-size:15px;font-weight:400;text-decoration:none;transition:all 0.3s}
-.sub_common_tabmenu li a:hover,.sub_common_tabmenu li a.on,.sub_common_tabmenu li.active a{background:#4964BC;color:#fff;font-weight:500}
-
-/* # 모바일 셀렉트박스 (기본 숨김) */
-.sub_common_top .sub_mobile_select{display:none;position:relative;width:100%;max-width:400px;margin:0 auto}
-.sub_mobile_select .mobile_select_btn{display:flex;align-items:center;justify-content:space-between;width:100%;height:50px;padding:0 20px;background:#4964BC;border:none;cursor:pointer}
-.sub_mobile_select .mobile_select_btn .select_text{font-size:15px;font-weight:500;color:#fff}
-.sub_mobile_select .mobile_select_btn .select_arrow{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:7px solid #fff;transition:transform 0.3s}
-.sub_mobile_select.open .mobile_select_btn .select_arrow{transform:rotate(180deg)}
-.sub_mobile_select .mobile_select_list{display:none;position:absolute;top:100%;left:0;width:100%;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;list-style:none;padding:0;margin:0;max-height:300px;overflow-y:auto}
-.sub_mobile_select.open .mobile_select_list{display:block}
-.sub_mobile_select .mobile_select_list li{border-bottom:1px solid #eee}
-.sub_mobile_select .mobile_select_list li:last-child{border-bottom:none}
-.sub_mobile_select .mobile_select_list li a{display:block;padding:14px 20px;font-size:14px;color:#333;text-decoration:none;transition:all 0.2s}
-.sub_mobile_select .mobile_select_list li a:hover,.sub_mobile_select .mobile_select_list li a.on{background:#f5f5f5;color:#4964BC;font-weight:500}
-
-/* # 서브 공통 타이틀 영역 */
-.sub_title_wrap{display:flex;align-items:center;justify-content:center;max-width:1600px;margin:0 auto;padding:70px 0px 40px;position:relative}
-.sub_title_wrap .sub_common_title{font-size:35px;color:#111;text-align:center;font-weight:700;flex:1;padding:0}
-.sub_title_wrap .sub_location{position:absolute;right:0px;top:50%;transform:translateY(-50%);font-size:13px;color:#999;letter-spacing:0.3px}
+/* # 가뭄 상세 섹션 */
+.drought-detail-section{max-width:1600px;margin:0 auto;padding:40px 0}
+.drought-detail-section .filter-row{justify-content:center}
 
 /* # 가뭄현황 섹션 */
 .drought-status-section{max-width:1600px;margin:0 auto}
@@ -72,10 +43,6 @@
 .radio_item:hover .crop_icon.pepper,.radio_item input[type="radio"]:checked + .radio_label .crop_icon.pepper{content:url('../images/icon_crops_pepper_on.png')}
 .radio_item:hover .crop_icon.sweet_potato,.radio_item input[type="radio"]:checked + .radio_label .crop_icon.sweet_potato{content:url('../images/icon_crops_sweet_potato_on.png')}
 
-/* # 서브 콘텐츠 영역 */
-.sub_contents{width:100%;background:#f5f5f5;margin:30px 0 0 0;padding:40px 0}
-.sub_contents .sub_contents_inner{max-width:1700px;margin:0 auto;padding:0 40px;min-height:400px;display:flex;flex-wrap:wrap;gap:20px}
-
 /* # 맵 공통 박스 */
 .sub_contents_inner .map_common_box{flex:1 1 calc(33.333% - 14px);min-width:300px;padding:20px}
 .map_common_box .area_title{margin-bottom:15px}
@@ -105,28 +72,24 @@
 .legend_bar .legend_point .legend_name{color:#fff;font-weight:400}
 .legend_bar .legend_point .legend_range{color:#999;font-weight:400}
 
-/* # 가뭄현황 반응형 - TABLET (1024px) */
+/* ================================================== 
+   # 가뭄현황 반응형
+   ================================================== */
+
+/* # 반응형 - TABLET (1024px) */
 @media(max-width:1024px){
-	.sub_title_wrap{padding:40px 30px 25px}
-	.sub_title_wrap .sub_common_title{font-size:30px}
-	.sub_title_wrap .sub_location{right:30px}
+	.drought-detail-section{padding:30px}
 	.drought-status-section{padding:0 30px}
 	.drought-status-section .farm-crops-group{flex-wrap:wrap}
 	.farm-crops-group .radio_item{padding:12px 20px;min-width:120px}
-	.sub_contents .sub_contents_inner{padding:0 30px}
 	.sub_contents_inner .map_common_box{flex:1 1 calc(50% - 10px)}
 	.sub_contents .legend_bar{padding:20px 30px;gap:0}
 	.legend_bar .legend_point{padding:0 25px}
 }
 
-/* # 가뭄현황 반응형 - MOBILE (768px) */
+/* # 반응형 - MOBILE (768px) */
 @media(max-width:768px){
-	.sub_common_top{min-height:50px}
-	.sub_common_top .sub_common_tabmenu{display:none}
-	.sub_common_top .sub_mobile_select{display:block}
-	.sub_title_wrap{flex-direction:column;padding:35px 20px 20px;gap:10px}
-	.sub_title_wrap .sub_common_title{font-size:26px}
-	.sub_title_wrap .sub_location{position:static;transform:none;text-align:center}
+	.drought-detail-section{padding:20px}
 	.drought-status-section{padding:0 20px}
 	.drought-status-section .btn_calendar{padding:10px 20px}
 	.btn_calendar .current_date{font-size:16px}
@@ -134,21 +97,14 @@
 	.farm-crops-group .radio_item{padding:10px 15px;border:1px solid #ddd;min-width:100px}
 	.radio_item .radio_label{font-size:14px;padding-left:26px}
 	.radio_item .radio_label .crop_icon{width:28px;height:28px}
-	.sub_contents{padding:30px 0;margin:20px 0 0 0}
-	.sub_contents .sub_contents_inner{padding:0 20px;gap:15px}
 	.sub_contents_inner .map_common_box{flex:1 1 100%}
 	.sub_contents .legend_bar{padding:15px 20px;flex-wrap:wrap;gap:10px}
 	.legend_bar .legend_point{padding:10px 15px;border-right:none}
 }
 
-/* # 가뭄현황 반응형 - SMALL MOBILE (480px) */
+/* # 반응형 - SMALL MOBILE (480px) */
 @media(max-width:480px){
-	.sub_mobile_select .mobile_select_btn{height:45px;padding:0 15px}
-	.sub_mobile_select .mobile_select_btn .select_text{font-size:14px}
-	.sub_mobile_select .mobile_select_list li a{padding:12px 15px;font-size:13px}
-	.sub_title_wrap{padding:30px 15px 15px}
-	.sub_title_wrap .sub_common_title{font-size:22px}
-	.sub_title_wrap .sub_location{font-size:12px}
+	.drought-detail-section{padding:15px}
 	.drought-status-section{padding:0 15px}
 	.drought-status-section .btn_calendar{width:100%;padding:10px 15px}
 	.btn_calendar .current_date{font-size:15px}
@@ -156,8 +112,6 @@
 	.farm-crops-group .radio_item{flex:0 0 auto;padding:8px 12px;min-width:auto}
 	.radio_item .radio_label{padding-left:24px}
 	.radio_item .radio_label .crop_icon{width:24px;height:24px}
-	.sub_contents{padding:20px 0;margin:15px 0 0 0}
-	.sub_contents .sub_contents_inner{padding:0 15px;min-height:300px;gap:12px}
 	.sub_contents_inner .map_common_box{padding:15px}
 	.map_common_box .area_title h3{font-size:16px}
 	.area_map .legend_wrap{padding:10px 12px}

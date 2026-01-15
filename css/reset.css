@@ -10,7 +10,15 @@ body {font-size:15px;font-family: "pretendard", "HelveticaNeue", "Helvetica Neue
   -webkit-text-size-adjust:100%;line-height:16px;letter-spacing:-.04rem}
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block;margin:0;padding:0}  /* html5 */
-table{border-spacing:0;border-collapse:collapse;}
+h1, h2, h3, h4, h5, h6 {margin:0;padding:0;font-weight:700;line-height:1.4}
+
+
+p, blockquote, pre, hr, div {display:block;margin:0;padding:0}
+strong, b {font-weight:700}
+small {font-size:12px}
+button {border:none;background:none;cursor:pointer;font-family:inherit;font-size:inherit}
+table{border-spacing:0;border-collapse:collapse;width:100%}
+th,td{padding:0;text-align:left;vertical-align:middle}
 
 /* #Links
 ================================================== */
@@ -84,35 +92,30 @@ iframe, object, embed{max-width:100%}
 ================================================== */
 
 /* form reset */
-input::-ms-clear {display:none;}
-select::-ms-expand {display:none;}  /*IE10,11*/
-select{appearance:none;-webkit-appearance: none; /*Chrome*/-moz-appearance: none; /*Firefox*/}
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button {-webkit-appearance:none;}
-input[type=text],select,textarea {-webkit-appearance:none;-moz-appearance:none; -ms-appearance:none; -o-appearance:none;appearance:none;
-vertical-align:middle;transition:border-color ease-in-out 0.225s; -webkit-transition:border-color ease-in-out 0.225s;outline:none;}
+input,select,textarea,button{font-family:inherit;font-size:inherit;line-height:inherit;margin:0}
+input::-ms-clear{display:none}
+select::-ms-expand{display:none}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+input[type=text],input[type=password],input[type=email],input[type=tel],input[type=number],select,textarea{-webkit-appearance:none;-moz-appearance:none;appearance:none;vertical-align:middle;outline:none}
+input::placeholder,textarea::placeholder{color:#999}
 
-select,input{font-family:"pretendard";font-size:16px}
-
-/* input  */
-input[type=text]{border:1px solid #cdd0dd;height:45px;line-height:43px;min-width:85px;color:#70789D;padding:0 10px;font-size:15px}
-
-input[type=radio]{border:1px solid #cdd0dd;width:18px;height:18px;border-radius:50%}
-input::placeholder {font-size:16px;color: #70789D;}
-
-/* select */
-select{border:1px solid #cdd0dd;height:45px;line-height:43px;color:#70789D;
-  background:#fff url(../images/common/arrow_select_off.png) no-repeat;background-size:12px;
-  background-position:95% center;padding:0 20px 0 10px
-  }
+/* readonly & disabled */
+input[readonly],select[readonly],textarea[readonly]{background-color:#f7f8fb;color:#666}
+input:disabled,select:disabled,textarea:disabled,button:disabled{background-color:#f5f5f5;color:#999;cursor:not-allowed}
 
 
-/* readonly */
-input:not([type=checkbox]):not([type=radio])[readonly] {padding:0 20px;}
-input:not([type=checkbox]):not([type=radio])[readonly],
-select[readonly] {color:#555; background-color:#F7F8FB; border:1px solid #ddd;}
-
-
-/* #animation
+/* #Scrollbar
 ================================================== */
-.animate{-webkit-transition: all 0.3s;-moz-transition: all 0.3s;transition: all 0.3s;}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:#f1f1f1}
+::-webkit-scrollbar-thumb{background:#ccc;border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:#999}
+
+/* #Selection
+================================================== */
+::selection{background:#4964BC;color:#fff}
+::-moz-selection{background:#4964BC;color:#fff}
+
+/* #Animation
+================================================== */
+.animate{transition:all 0.3s ease}
