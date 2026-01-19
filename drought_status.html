@@ -73,16 +73,15 @@
             </ul>
          </div>
       </section>    
-
+<!-- 
       <div class="sub_title_wrap">
       <div class="sub_common_title">가뭄현황</div>
         <div class="sub_location">HOME > 가뭄현황 > 전체</div>
-      </div>
+      </div> -->
 
       <section class="drought-status-section">
-        <button class="btn_calendar"><span class="current_date">2026년 1월 11일</span><span class="btn_open"></span></button>
-
-        <div class="farm-crops-group">
+        <div class="drought-filter-row">
+          <div class="farm-crops-group">
           <label class="radio_item">
             <input type="radio" name="drought_type" value="콩" checked>
             <span class="radio_label">콩<img src="./images/icon_crops_bean_off.png" alt="콩" class="crop_icon bean"></span>
@@ -103,8 +102,13 @@
             <input type="radio" name="drought_type" value="고구마">
             <span class="radio_label">고구마<img src="./images/icon_crops_sweet_potato_off.png" alt="고구마" class="crop_icon sweet_potato"></span>
           </label>
-        </div>
+          </div>
 
+          <div class="date-selector">
+            <span class="date-label">날짜선택</span>
+            <button class="btn_calendar"><span class="current_date">2026년 1월 11일</span><span class="btn_open"></span></button>
+          </div>
+        </div>
 
       </section>
 

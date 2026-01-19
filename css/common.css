@@ -1,12 +1,9 @@
 /* # 서브 공통 컨테이너 */
 .sub_container{width:100%;padding-top:90px}
 
-.sub_common_top{position:relative;width:100%;height:95px;display:flex;align-items:flex-end;justify-content:center}
-.sub_common_top.sub_visual1{background:url('../images/sub_visual1.jpg') no-repeat center center;background-size:cover}
-.sub_common_top.sub_visual2{background:url('../images/sub_visual2.jpg') no-repeat center center;background-size:cover}
-.sub_common_top.sub_visual3{background:url('../images/sub_visual3.jpg') no-repeat center center;background-size:cover}
-.sub_common_top.sub_visual4{background:url('../images/sub_visual4.jpg') no-repeat center center;background-size:cover}
-.sub_common_top.sub_visual5{background:url('../images/sub_visual5.jpg') no-repeat center center;background-size:cover}
+.sub_common_top{position:relative;width:100%;display:flex;align-items:flex-end;justify-content:center}
+ /* .sub_common_top.sub_visual1{background:url('../images/sub_visual1.jpg') no-repeat center center;background-size:cover}
+ */
 
 
 /* # 모바일 셀렉트박스 (기본 숨김) */
@@ -25,7 +22,7 @@
 
 
 /* # 서브 공통 탭메뉴 */
-.sub_common_top .sub_common_tabmenu{display:flex;width:100%;max-width:1600px;margin:0 auto;list-style:none;padding:0;gap:1px}
+.sub_common_top .sub_common_tabmenu{display:flex;width:100%;max-width:1500px;margin:0 auto;list-style:none;padding:0;gap:1px}
 .sub_common_tabmenu li{flex:1;display:flex}
 .sub_common_tabmenu li a{display:flex;align-items:center;justify-content:center;width:100%;height:55px;background:#E2E2E2;color:#767676;font-size:15px;font-weight:400;text-decoration:none;transition:all 0.3s}
 .sub_common_tabmenu li a:hover,.sub_common_tabmenu li a.on,.sub_common_tabmenu li.active a{background:#4964BC;color:#fff;font-weight:500}
@@ -60,8 +57,8 @@
 
 
 /* # 서브 콘텐츠 영역 */
-.sub_contents{width:100%;background:#f5f5f5;margin:30px 0 0 0;padding:40px 0}
-.sub_contents .sub_contents_inner{max-width:1700px;margin:0 auto;padding:0 40px;display:flex;flex-wrap:wrap;gap:20px}
+.sub_contents{width:100%;background:#f5f5f5;margin:20px 0 0 0;padding:30px 0}
+.sub_contents .sub_contents_inner{max-width:1500px;margin:0 auto;padding:0 0px;display:flex;flex-wrap:wrap;gap:20px}
 
 /* # 공통 타이틀 */
 .h3_title{width:100%;font-size:20px;font-weight:600;color:#111}

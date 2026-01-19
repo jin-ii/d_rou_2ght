@@ -4,20 +4,24 @@
 
 
 /* # 가뭄 상세 섹션 */
-.drought-detail-section{max-width:1600px;margin:0 auto;padding:40px 0}
+.drought-detail-section{max-width:1500px;margin:0 auto;padding:40px 0}
 .drought-detail-section .filter-row{justify-content:center}
 
 /* # 가뭄현황 섹션 */
-.drought-status-section{max-width:1600px;margin:0 auto}
-.drought-status-section .btn_calendar{display:flex;align-items:center;justify-content:center;gap:12px;background:#fff;border:none;padding:12px 24px;cursor:pointer;margin:0 auto 10px;transition:all 0.3s}
-.btn_calendar .current_date{font-size:20px;color:#111;font-weight:500}
+.drought-status-section{max-width:1500px;margin:0 auto}
+.drought-status-section .drought-filter-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:20px}
+.drought-status-section .date-selector{display:flex;align-items:center;gap:12px;margin-left:auto}
+.date-selector .date-label{font-size:15px;color:#555;font-weight:500;white-space:nowrap}
+.drought-status-section .btn_calendar{display:flex;align-items:center;justify-content:center;gap:12px;background:#fff;border:1px solid #ddd;padding:12px 24px;cursor:pointer;transition:all 0.3s}
+.btn_calendar .current_date{font-size:16px;color:#111;font-weight:500}
 .btn_calendar .btn_open{display:flex;align-items:center;justify-content:center;width:25px;height:25px;background:#fff;border:1px solid #ddd;border-radius:50%;position:relative}
 .btn_calendar .btn_open::after{content:'';display:block;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #666;transition:all 0.3s}
+.btn_calendar:hover{border-color:#4964BC}
 .btn_calendar:hover .btn_open{border-color:#4964BC}
 .btn_calendar:hover .btn_open::after{border-top-color:#4964BC}
 
 /* # 작물 라디오 그룹 */
-.drought-status-section .farm-crops-group{display:flex;align-items:center;justify-content:center;gap:4px;padding:0;border:none;background:transparent}
+.drought-status-section .farm-crops-group{display:flex;align-items:center;gap:4px;padding:0;border:none;background:transparent;flex-wrap:wrap}
 .farm-crops-group .radio_item{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:12px 20px;transition:all 0.3s;border:1px solid #ddd;background:#fff;min-width:180px}
 .radio_item input[type="radio"]{display:none}
 .radio_item .radio_label{display:flex;align-items:center;gap:10px;font-size:15px;color:#333;font-weight:400;position:relative;padding-left:28px;flex:1}
@@ -44,8 +48,8 @@
 .radio_item:hover .crop_icon.sweet_potato,.radio_item input[type="radio"]:checked + .radio_label .crop_icon.sweet_potato{content:url('../images/icon_crops_sweet_potato_on.png')}
 
 /* # 맵 공통 박스 */
-.sub_contents_inner .map_common_box{flex:1 1 calc(33.333% - 14px);min-width:300px;padding:20px}
-.map_common_box .area_title{margin-bottom:15px}
+.sub_contents_inner .map_common_box{flex:1 1 calc(33.333% - 14px);min-width:300px}
+
 .map_common_box .area_title h3{font-size:24px;font-weight:700;color:#111;display:flex;align-items:center;gap:12px;padding-bottom:12px}
 .map_common_box .area_title .date{font-size:13px;font-weight:400;color:#999;margin-left:auto}
 .map_common_box .area_map{position:relative;min-height:640px;background:#fafafa}
@@ -65,7 +69,7 @@
 .legend_point.color6::before{background:#5D4037}
 
 /* # 하단 범례 바 */
-.sub_contents .legend_bar{width:100%;background:#3a3a3a;padding:40px 40px;margin-top:30px;display:flex;align-items:center;justify-content:center;gap:0}
+.sub_contents .legend_bar{width:100%;background:#3a3a3a;padding:30px 40px;margin-top:30px;display:flex;align-items:center;justify-content:center;gap:0}
 .legend_bar .legend_point{display:flex;align-items:center;gap:12px;padding:0 40px;border-right:1px solid rgba(255,255,255,0.2);font-size:14px;color:#fff}
 .legend_bar .legend_point:last-child{border-right:none}
 .legend_bar .legend_point::before{position:static;transform:none;width:16px;height:16px;flex-shrink:0}
@@ -80,7 +84,9 @@
 @media(max-width:1024px){
 	.drought-detail-section{padding:30px}
 	.drought-status-section{padding:0 30px}
-	.drought-status-section .farm-crops-group{flex-wrap:wrap}
+	.drought-status-section .drought-filter-row{flex-direction:column;align-items:stretch;gap:15px}
+	.drought-status-section .date-selector{margin-left:0;justify-content:flex-end}
+	.drought-status-section .farm-crops-group{justify-content:flex-start}
 	.farm-crops-group .radio_item{padding:12px 20px;min-width:120px}
 	.sub_contents_inner .map_common_box{flex:1 1 calc(50% - 10px)}
 	.sub_contents .legend_bar{padding:20px 30px;gap:0}
@@ -91,9 +97,12 @@
 @media(max-width:768px){
 	.drought-detail-section{padding:20px}
 	.drought-status-section{padding:0 20px}
-	.drought-status-section .btn_calendar{padding:10px 20px}
-	.btn_calendar .current_date{font-size:16px}
-	.drought-status-section .farm-crops-group{flex-wrap:wrap;gap:6px}
+	.drought-status-section .drought-filter-row{gap:12px}
+	.drought-status-section .date-selector{gap:8px}
+	.date-selector .date-label{font-size:14px}
+	.drought-status-section .btn_calendar{padding:10px 16px}
+	.btn_calendar .current_date{font-size:14px}
+	.drought-status-section .farm-crops-group{gap:6px}
 	.farm-crops-group .radio_item{padding:10px 15px;border:1px solid #ddd;min-width:100px}
 	.radio_item .radio_label{font-size:14px;padding-left:26px}
 	.radio_item .radio_label .crop_icon{width:28px;height:28px}
@@ -106,9 +115,10 @@
 @media(max-width:480px){
 	.drought-detail-section{padding:15px}
 	.drought-status-section{padding:0 15px}
+	.drought-status-section .date-selector{flex-direction:column;align-items:flex-start;gap:6px}
 	.drought-status-section .btn_calendar{width:100%;padding:10px 15px}
-	.btn_calendar .current_date{font-size:15px}
-	.drought-status-section .farm-crops-group{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:4px}
+	.btn_calendar .current_date{font-size:14px}
+	.drought-status-section .farm-crops-group{flex-direction:row;flex-wrap:wrap;justify-content:flex-start;gap:4px}
 	.farm-crops-group .radio_item{flex:0 0 auto;padding:8px 12px;min-width:auto}
 	.radio_item .radio_label{padding-left:24px}
 	.radio_item .radio_label .crop_icon{width:24px;height:24px}
